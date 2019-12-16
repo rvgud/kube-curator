@@ -1,0 +1,17 @@
+namespace: kube-system
+CronJob:
+  name: kube-curator
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1
+  schedule: '"*/1 * * * *"'
+
+ServiceAccount:
+  name: kube-curator
+
+config:
+  name: kube-curator
+  rules:
+    pods:
+     namespaces:
+      demo:
+        labels: "app=hello-service"

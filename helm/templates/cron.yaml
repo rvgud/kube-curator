@@ -1,0 +1,26 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ .Values.CronJob.name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  schedule: {{ .Values.CronJob.schedule }}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          volumes:
+          - name: config-volume
+            configMap:
+              name: {{ .Values.config.name }}
+          containers:
+          - name: kube-curator
+            image: singhravindra/kube-curator
+            volumeMounts:
+              - name: config-volume
+                mountPath: /config/config.yaml
+                subPath: config.yaml
+          restartPolicy: OnFailure
+          serviceAccountName: {{ .Values.ServiceAccount.name }}
+          successfulJobsHistoryLimit: {{ .Values.CronJob.successfulJobsHistoryLimit }}
+          failedJobsHistoryLimit: {{ .Values.CronJob.failedJobsHistoryLimit }}

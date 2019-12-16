@@ -3,11 +3,11 @@ entries:
   kube-curator:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-12-16T11:59:00.106164437+05:30
+    created: 2019-12-16T12:17:12.71623064+05:30
     description: A Helm chart for kube-curator project.
     digest: 2b70eb1a2292660ef92b63c53b2d859d76a2291d2092ba5a8c7d028a4d413021
     name: kube-curator
     urls:
-    - https://gree-gorey.github.io/helm-example/kube-curator-1.0.0.tgz
+    - https://rvgud.github.io/kube-curator/kube-curator-1.0.0.tgz
     version: 1.0.0
-generated: 2019-12-16T11:59:00.105748085+05:30
+generated: 2019-12-16T12:17:12.715865054+05:30
